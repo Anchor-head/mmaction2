@@ -28,7 +28,7 @@ model = dict(
         init_cfg=dict(
             type='Pretrained',
             checkpoint=  # noqa: E251
-            'https://download.openmmlab.com/mmaction/v1.0/recognition/uniformerv2/kinetics400/uniformerv2-base-p16-res224_clip-kinetics710-pre_u8_kinetics400-rgb_20221219-203d6aac.pth',  # noqa: E501
+            'ckpts/uniformerv2-base-p16-res224_clip-kinetics710-kinetics-k400-pre_16xb32-u8_mitv1-rgb_20230313-a6f4a567.pth',  # noqa: E501
             prefix='backbone.')),
     cls_head=dict(
         type='TimeSformerHead',
@@ -44,11 +44,11 @@ model = dict(
 
 # dataset settings
 dataset_type = 'VideoDataset'
-data_root = 'data/mit/videos/training'
-data_root_val = 'data/mit/videos/validation'
-ann_file_train = 'data/mit/mit_train_list_videos.txt'
-ann_file_val = 'data/mit/mit_val_list_videos.txt'
-ann_file_test = 'data/mit/mit_val_list_videos.txt'
+data_root = '../../../well-e/databases/behavior_detection/LLaMARJO/voinea-cropped-videos'
+data_root_val = '../../../well-e/databases/behavior_detection/LLaMARJO/voinea-cropped-videos'
+ann_file_train = 'data/cowvids_train_list_cropped_top10.txt'
+ann_file_val = 'data/cowvids_val_list_cropped_top10.txt'
+ann_file_test = 'data/cowvids_val_list_cropped_top10.txt'
 
 file_client_args = dict(io_backend='disk')
 train_pipeline = [

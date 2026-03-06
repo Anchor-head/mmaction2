@@ -27,19 +27,22 @@ model = dict(
     cls_head=dict(
         type='TimeSformerHead',
         dropout_ratio=0.5,
+        ### CHANGE
         num_classes=339,
         in_channels=1024,
         average_clips='prob'),
     data_preprocessor=dict(
         type='ActionDataPreprocessor',
-        mean=[114.75, 114.75, 114.75],
-        std=[57.375, 57.375, 57.375],
+        ### CHANGE
+        mean=[81.18819513, 84.80972548, 89.56644091],
+        std=[52.37756894, 52.10623331, 51.52931835],
         format_shape='NCTHW'))
 
 # dataset settings
+### Change
 dataset_type = 'VideoDataset'
-data_root_val = 'data/mit_v1'
-ann_file_test = 'data/mit_v1/val.csv'
+data_root_val = '../../../well-e/databases/LLaMARJO/appsheet-video'
+ann_file_test = 'data/cowvids_train_list.txt'
 
 test_pipeline = [
     dict(type='DecordInit'),
